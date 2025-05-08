@@ -17,7 +17,8 @@ import sys
 import os
 import django
 if sys.platform == 'darwin':
-    sys.path.append('/Users/jeffchen/Documents/gitdir/dashboard')
+    sys.path.append('/Users/syz/project/dashboard')
+    sys.path.append('/Users/syz/project/trader')
 elif sys.platform == 'win32':
     sys.path.append(r'E:\github\dashboard')
 else:
