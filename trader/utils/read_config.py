@@ -67,12 +67,12 @@ if not os.path.exists(config_file):
     with open(config_file, 'wt') as f:
         f.write(config_example)
     print('create config file:', config_file)
-
+# 忽略变量插值，例如%，$
 config = configparser.ConfigParser(interpolation=None)
 config.read(config_file)
 
 ctp_errors = {}
-ctp_xml_path = 'D:/github/trader/trader/utils/error.xml' if sys.platform == 'win32' \
-    else '/Users/syz/project/trader/trader/utils/error.xml'
+ctp_xml_path = '/Users/syz/project/trader/trader/utils/error.xml' if sys.platform == 'darwin' \
+    else '/root/project/trader/trader/utils/error.xml'
 for error in ET.parse(ctp_xml_path).getroot():
     ctp_errors[int(error.attrib['value'])] = error.attrib['prompt']
